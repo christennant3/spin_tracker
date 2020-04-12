@@ -1,13 +1,11 @@
-﻿using Abp.AutoMapper;
-using Abp.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 
 namespace SpinTracker.Weathers
 {
-    
-    public class Weather: Entity<int>    {
+    [AutoMapFrom(typeof(Weather))]
+    public class WeatherDto : EntityDto<int>
+    {
         public int WeatherId { get; set; }
         public string Pollen { get; set; }
         public string Barometric { get; set; }

@@ -11,6 +11,9 @@
     <RootNamespace>SpinTracker</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Abp" Version="5.5.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SpinTracker.Core\SpinTracker.Core.csproj" />
   </ItemGroup>
 </Project>
