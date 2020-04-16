@@ -17,11 +17,14 @@ export default Vue.extend({
   },
   filters: {},
   mounted() {
-    axios
-      .get("http://localhost:21021/api/services/app/Weather/GetAll")
-      .then(response => {
-        this.weathers = response.data.result.items;
-      });
+    const axios = require("axios");
+    const api = axios.create({
+      baseURL: "http://localhost:21021/api/services/app/"
+    });
+
+    api.get("Weather/GetAll").then(response => {
+      this.weathers = response.data.result.items;
+    });
   },
 
   methods: {},
