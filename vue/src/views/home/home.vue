@@ -9,6 +9,7 @@
 <script lang="ts">
 import Vue from "vue";
 import axios from "axios";
+import {HTTP} from '../../js/http-common';
 export default Vue.extend({
   data: function() {
     return {
