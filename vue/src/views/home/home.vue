@@ -27,13 +27,18 @@ export default Vue.extend({
     });
 
 
-      if (process.env.NODE_ENV === 'production') {
-        console.log('production');
+      if (process.env.NODE_ENV === 'development') {
+        console.log('DEV');
       }
 
-      else {
-        console.log('dev');
+      else if (process.env.NODE_ENV === 'production') {
+        console.log('PRODUCTION');
 
+      }
+
+
+      else {
+        console.log('OTHER');
       }
 
 
