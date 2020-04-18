@@ -25,6 +25,19 @@ export default Vue.extend({
     api.get("Weather/GetAll").then(response => {
       this.weathers = response.data.result.items;
     });
+
+
+      if (process.env.NODE_ENV === 'production') {
+        console.log('production');
+      }
+
+      else {
+        console.log('dev');
+
+      }
+
+
+
   },
 
   methods: {},
