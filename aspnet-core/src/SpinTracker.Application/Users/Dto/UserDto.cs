@@ -36,5 +36,6 @@ namespace SpinTracker.Users.Dto
         public DateTime CreationTime { get; set; }
 
         public string[] RoleNames { get; set; }
+
     }
 }
