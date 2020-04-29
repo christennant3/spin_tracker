@@ -14,5 +14,7 @@ namespace SpinTracker.Weathers
         public int WeatherConditionsTypeId { get; set; }
     }
 
+
+
 }
 

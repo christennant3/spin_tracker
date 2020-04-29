@@ -11,6 +11,16 @@
     <Compile Remove="Migrations\20180726102624_Upgrade_ABP_380.cs" />
     <Compile Remove="Migrations\20180927062408_test.cs" />
     <Compile Remove="Migrations\20190111071724_Upgraded_To_Abp_v4_1_0.cs" />
+    <Compile Remove="Migrations\20200412110326_weather-table.cs" />
+    <Compile Remove="Migrations\20200412110326_weather-table.Designer.cs" />
+    <Compile Remove="Migrations\20200429152614_sleep entity.cs" />
+    <Compile Remove="Migrations\20200429152614_sleep entity.Designer.cs" />
+    <Compile Remove="Migrations\20200429152907_fix problem.cs" />
+    <Compile Remove="Migrations\20200429152907_fix problem.Designer.cs" />
+    <Compile Remove="Migrations\20200429153310_fix constraint error.cs" />
+    <Compile Remove="Migrations\20200429153310_fix constraint error.Designer.cs" />
+    <Compile Remove="Migrations\20200429153605_fix conflicted key error.cs" />
+    <Compile Remove="Migrations\20200429153605_fix conflicted key error.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />

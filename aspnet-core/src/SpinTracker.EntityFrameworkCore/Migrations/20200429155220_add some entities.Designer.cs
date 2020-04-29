@@ -10,8 +10,8 @@ using SpinTracker.EntityFrameworkCore;
 namespace SpinTracker.Migrations
 {
     [DbContext(typeof(SpinTrackerDbContext))]
-    [Migration("20200412110326_weather-table")]
-    partial class weathertable
+    [Migration("20200429155220_add some entities")]
+    partial class addsomeentities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1516,6 +1516,29 @@ namespace SpinTracker.Migrations
                     b.ToTable("AbpUsers");
                 });
 
+            modelBuilder.Entity("SpinTracker.EntryDates.EntryDate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateEntry")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EntryDateId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("EntryDates");
+                });
+
             modelBuilder.Entity("SpinTracker.MultiTenancy.Tenant", b =>
                 {
                     b.Property<int>("Id")
@@ -1579,6 +1602,35 @@ namespace SpinTracker.Migrations
                     b.ToTable("AbpTenants");
                 });
 
+            modelBuilder.Entity("SpinTracker.Sleeps.Sleep", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AwakeTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EntryDateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SleepId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SleepQuality")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SleepTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EntryDateId");
+
+                    b.ToTable("Sleeps");
+                });
+
             modelBuilder.Entity("SpinTracker.Weathers.Weather", b =>
                 {
                     b.Property<int>("Id")
@@ -1589,13 +1641,13 @@ namespace SpinTracker.Migrations
                     b.Property<string>("Barometric")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("EntryDateId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Pollen")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Temperature")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WeatherConditionsTypeId")
                         .HasColumnType("int");
 
                     b.Property<int>("WeatherId")
@@ -1606,7 +1658,29 @@ namespace SpinTracker.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EntryDateId");
+
+                    b.HasIndex("WeatherTypeId");
+
                     b.ToTable("Weathers");
+                });
+
+            modelBuilder.Entity("SpinTracker.Weathers.WeatherType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WeatherTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WeatherTypes");
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>
@@ -1805,6 +1879,15 @@ namespace SpinTracker.Migrations
                         .HasForeignKey("LastModifierUserId");
                 });
 
+            modelBuilder.Entity("SpinTracker.EntryDates.EntryDate", b =>
+                {
+                    b.HasOne("SpinTracker.Authorization.Users.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SpinTracker.MultiTenancy.Tenant", b =>
                 {
                     b.HasOne("SpinTracker.Authorization.Users.User", "CreatorUser")
@@ -1822,6 +1905,30 @@ namespace SpinTracker.Migrations
                     b.HasOne("SpinTracker.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
+                });
+
+            modelBuilder.Entity("SpinTracker.Sleeps.Sleep", b =>
+                {
+                    b.HasOne("SpinTracker.EntryDates.EntryDate", "EntryDate")
+                        .WithMany()
+                        .HasForeignKey("EntryDateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SpinTracker.Weathers.Weather", b =>
+                {
+                    b.HasOne("SpinTracker.EntryDates.EntryDate", "EntryDate")
+                        .WithMany("Weathers")
+                        .HasForeignKey("EntryDateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SpinTracker.Weathers.WeatherType", "WeatherType")
+                        .WithMany("Weathers")
+                        .HasForeignKey("WeatherTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>
