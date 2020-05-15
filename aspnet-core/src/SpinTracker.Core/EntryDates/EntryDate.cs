@@ -11,7 +11,9 @@ namespace SpinTracker.EntryDates
     {
 
         public int EntryDateId { get; set; }
+
         public DateTime DateEntry { get; set; }
+
         public long UserId { get; set; }
 
         public ICollection<Weather> Weathers { get; set; }
