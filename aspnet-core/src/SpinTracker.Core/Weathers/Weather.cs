@@ -6,7 +6,7 @@ namespace SpinTracker.Weathers
 {
 
     public class Weather: Entity<int>    {
-        public int WeatherId { get; set; }
+        //public int WeatherId { get; set; }
         public string Pollen { get; set; }
         public string Barometric { get; set; }
         public int Temperature { get; set; }
@@ -20,8 +20,7 @@ namespace SpinTracker.Weathers
 
     public class WeatherType : Entity<int>
     {
-        public int WeatherTypeId { get; set; }
-        
+      
         public string Name { get; set; }
 
         public ICollection<Weather> Weathers { get; set; }

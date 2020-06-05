@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SpinTracker.Migrations
 {
-    public partial class addsomeentities : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,6 @@ namespace SpinTracker.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    EntryDateId = table.Column<int>(nullable: false),
                     DateEntry = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<long>(nullable: false)
                 },
@@ -48,7 +47,6 @@ namespace SpinTracker.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SleepId = table.Column<int>(nullable: false),
                     SleepTime = table.Column<DateTime>(nullable: false),
                     AwakeTime = table.Column<DateTime>(nullable: false),
                     SleepQuality = table.Column<int>(nullable: false),
@@ -71,7 +69,6 @@ namespace SpinTracker.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    WeatherId = table.Column<int>(nullable: false),
                     Pollen = table.Column<string>(nullable: true),
                     Barometric = table.Column<string>(nullable: true),
                     Temperature = table.Column<int>(nullable: false),

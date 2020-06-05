@@ -10,8 +10,8 @@ using SpinTracker.EntityFrameworkCore;
 namespace SpinTracker.Migrations
 {
     [DbContext(typeof(SpinTrackerDbContext))]
-    [Migration("20200429155220_add some entities")]
-    partial class addsomeentities
+    [Migration("20200605100036_fixDoubleId")]
+    partial class fixDoubleId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1526,9 +1526,6 @@ namespace SpinTracker.Migrations
                     b.Property<DateTime>("DateEntry")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EntryDateId")
-                        .HasColumnType("int");
-
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
@@ -1615,9 +1612,6 @@ namespace SpinTracker.Migrations
                     b.Property<int>("EntryDateId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SleepId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SleepQuality")
                         .HasColumnType("int");
 
@@ -1650,9 +1644,6 @@ namespace SpinTracker.Migrations
                     b.Property<int>("Temperature")
                         .HasColumnType("int");
 
-                    b.Property<int>("WeatherId")
-                        .HasColumnType("int");
-
                     b.Property<int>("WeatherTypeId")
                         .HasColumnType("int");
 
@@ -1674,9 +1665,6 @@ namespace SpinTracker.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WeatherTypeId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

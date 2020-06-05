@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SpinTracker.EntityFrameworkCore;
 
 namespace SpinTracker.Migrations
 {
     [DbContext(typeof(SpinTrackerDbContext))]
-    partial class SpinTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200605095811_first")]
+    partial class first
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1663,6 +1665,9 @@ namespace SpinTracker.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WeatherTypeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

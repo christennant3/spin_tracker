@@ -10,7 +10,7 @@ namespace SpinTracker.Meals
     public class Meal : Entity<int>
     {
         [Key]
-        public int MealId { get; set; }
+        //public int MealId { get; set; }
         public int MealTypeId { get; set; }
 
         public int Salt { get; set; }

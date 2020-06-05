@@ -21,6 +21,14 @@
     <Compile Remove="Migrations\20200429153310_fix constraint error.Designer.cs" />
     <Compile Remove="Migrations\20200429153605_fix conflicted key error.cs" />
     <Compile Remove="Migrations\20200429153605_fix conflicted key error.Designer.cs" />
+    <Compile Remove="Migrations\20200429155220_add some entities.cs" />
+    <Compile Remove="Migrations\20200429155220_add some entities.Designer.cs" />
+    <Compile Remove="Migrations\20200605094346_first.cs" />
+    <Compile Remove="Migrations\20200605094346_first.Designer.cs" />
+    <Compile Remove="Migrations\20200605095353_first.cs" />
+    <Compile Remove="Migrations\20200605095353_first.Designer.cs" />
+    <Compile Remove="Migrations\20200605095636_first.cs" />
+    <Compile Remove="Migrations\20200605095636_first.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />

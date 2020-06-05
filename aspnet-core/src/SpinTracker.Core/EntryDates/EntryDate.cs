@@ -10,7 +10,7 @@ namespace SpinTracker.EntryDates
     public class EntryDate : Entity<int>
     {
 
-        public int EntryDateId { get; set; }
+        // public int EntryDateId { get; set; }
 
         public DateTime DateEntry { get; set; }
 

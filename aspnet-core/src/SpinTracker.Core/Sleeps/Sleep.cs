@@ -8,7 +8,7 @@ namespace SpinTracker.Sleeps
 {
     public class Sleep : Entity<int>
     {
-        public int SleepId { get; set; }
+        //public int SleepId { get; set; }
         public DateTime SleepTime { get; set; }
         public DateTime AwakeTime { get; set; }
         public int SleepQuality { get; set; }
