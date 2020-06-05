@@ -9,8 +9,7 @@ namespace SpinTracker.Meals
 {
     public class Meal : Entity<int>
     {
-        [Key]
-        //public int MealId { get; set; }
+        [Key]      
         public int MealTypeId { get; set; }
 
         public int Salt { get; set; }
@@ -69,4 +68,6 @@ namespace SpinTracker.Meals
 
         public ICollection<Consume> Consumes { get; set; }
     }
+
+   
 }

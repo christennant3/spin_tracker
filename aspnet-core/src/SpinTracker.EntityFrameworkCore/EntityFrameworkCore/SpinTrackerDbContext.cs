@@ -6,6 +6,7 @@ using SpinTracker.MultiTenancy;
 using SpinTracker.Weathers;
 using SpinTracker.Sleeps;
 using SpinTracker.EntryDates;
+using SpinTracker.Meals;
 
 namespace SpinTracker.EntityFrameworkCore
 {
@@ -17,6 +18,8 @@ namespace SpinTracker.EntityFrameworkCore
         public DbSet<Sleep> Sleeps { get; set; }
 
         public DbSet<EntryDate> EntryDates { get; set; }
+
+        public DbSet<Meal> Meals { get; set; }
 
         public SpinTrackerDbContext(DbContextOptions<SpinTrackerDbContext> options)
             : base(options)
