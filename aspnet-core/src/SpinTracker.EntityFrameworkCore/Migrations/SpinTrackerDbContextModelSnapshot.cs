@@ -1534,9 +1534,61 @@ namespace SpinTracker.Migrations
                     b.ToTable("EntryDates");
                 });
 
+            modelBuilder.Entity("SpinTracker.Meals.Consume", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Alcohol")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ConsumeUnitAlcoholId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ConsumeUnitId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ConsumeUnitWaterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EntryDateId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Tobacco")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Water")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConsumeUnitId");
+
+                    b.HasIndex("EntryDateId");
+
+                    b.ToTable("Consumes");
+                });
+
+            modelBuilder.Entity("SpinTracker.Meals.ConsumeUnit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("UnitType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ConsumeUnits");
+                });
+
             modelBuilder.Entity("SpinTracker.Meals.Meal", b =>
                 {
-                    b.Property<int>("MealTypeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -1544,10 +1596,7 @@ namespace SpinTracker.Migrations
                     b.Property<int>("EntryDateId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MealTypeId1")
+                    b.Property<int?>("MealTypeId")
                         .HasColumnType("int");
 
                     b.Property<int>("Salt")
@@ -1556,29 +1605,26 @@ namespace SpinTracker.Migrations
                     b.Property<int>("Sugar")
                         .HasColumnType("int");
 
-                    b.HasKey("MealTypeId");
+                    b.HasKey("Id");
 
                     b.HasIndex("EntryDateId");
 
-                    b.HasIndex("MealTypeId1");
+                    b.HasIndex("MealTypeId");
 
                     b.ToTable("Meals");
                 });
 
             modelBuilder.Entity("SpinTracker.Meals.MealType", b =>
                 {
-                    b.Property<int>("MealTypeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MealTypeId");
+                    b.HasKey("Id");
 
                     b.ToTable("MealType");
                 });
@@ -1929,6 +1975,19 @@ namespace SpinTracker.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SpinTracker.Meals.Consume", b =>
+                {
+                    b.HasOne("SpinTracker.Meals.ConsumeUnit", "ConsumeUnit")
+                        .WithMany("Consumes")
+                        .HasForeignKey("ConsumeUnitId");
+
+                    b.HasOne("SpinTracker.EntryDates.EntryDate", "EntryDate")
+                        .WithMany()
+                        .HasForeignKey("EntryDateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SpinTracker.Meals.Meal", b =>
                 {
                     b.HasOne("SpinTracker.EntryDates.EntryDate", "EntryDate")
@@ -1939,7 +1998,7 @@ namespace SpinTracker.Migrations
 
                     b.HasOne("SpinTracker.Meals.MealType", "MealType")
                         .WithMany("Meals")
-                        .HasForeignKey("MealTypeId1");
+                        .HasForeignKey("MealTypeId");
                 });
 
             modelBuilder.Entity("SpinTracker.MultiTenancy.Tenant", b =>

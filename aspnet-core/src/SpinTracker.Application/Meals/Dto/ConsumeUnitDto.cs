@@ -9,7 +9,6 @@ namespace SpinTracker.Meals.Dto
     [AutoMapFrom(typeof(MealType))]
     public class ConsumeUnitDto : EntityDto<int>
     {
-        public int ConsumeUnitId { get; set; }
 
         public string UnitType { get; set; }
     }

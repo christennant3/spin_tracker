@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20180726102624_Upgrade_ABP_380.cs" />
     <Compile Remove="Migrations\20180927062408_test.cs" />
     <Compile Remove="Migrations\20190111071724_Upgraded_To_Abp_v4_1_0.cs" />
+    <Compile Remove="Migrations\20200320114152_Upgraded_To_Abp_5_4_0.cs" />
+    <Compile Remove="Migrations\20200320114152_Upgraded_To_Abp_5_4_0.Designer.cs" />
     <Compile Remove="Migrations\20200412110326_weather-table.cs" />
     <Compile Remove="Migrations\20200412110326_weather-table.Designer.cs" />
     <Compile Remove="Migrations\20200429152614_sleep entity.cs" />
@@ -29,6 +31,18 @@
     <Compile Remove="Migrations\20200605095353_first.Designer.cs" />
     <Compile Remove="Migrations\20200605095636_first.cs" />
     <Compile Remove="Migrations\20200605095636_first.Designer.cs" />
+    <Compile Remove="Migrations\20200605095811_first.cs" />
+    <Compile Remove="Migrations\20200605095811_first.Designer.cs" />
+    <Compile Remove="Migrations\20200605100036_fixDoubleId.cs" />
+    <Compile Remove="Migrations\20200605100036_fixDoubleId.Designer.cs" />
+    <Compile Remove="Migrations\20200605143543_addMealTables.cs" />
+    <Compile Remove="Migrations\20200605143543_addMealTables.Designer.cs" />
+    <Compile Remove="Migrations\20200605224505_fixMealAppService.cs" />
+    <Compile Remove="Migrations\20200605224505_fixMealAppService.Designer.cs" />
+    <Compile Remove="Migrations\20200605225220_addMealsDbSets.cs" />
+    <Compile Remove="Migrations\20200605225220_addMealsDbSets.Designer.cs" />
+    <Compile Remove="Migrations\20200606092632_fixDoubleIds.cs" />
+    <Compile Remove="Migrations\20200606092632_fixDoubleIds.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />

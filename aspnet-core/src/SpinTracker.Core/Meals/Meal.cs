@@ -9,8 +9,7 @@ namespace SpinTracker.Meals
 {
     public class Meal : Entity<int>
     {
-        [Key]      
-        public int MealTypeId { get; set; }
+
 
         public int Salt { get; set; }
 
@@ -26,8 +25,7 @@ namespace SpinTracker.Meals
 
     public class Consume : Entity<int>
     {
-        [Key]
-        public int ConsumeId { get; set; }
+  
         public int Water { get; set; }
 
         public int Alcohol { get; set; }
@@ -50,8 +48,7 @@ namespace SpinTracker.Meals
     public class MealType : Entity<int>
     {
 
-        [Key]
-        public int MealTypeId { get; set; }
+   
 
         public string Name { get; set; }
 
@@ -61,8 +58,6 @@ namespace SpinTracker.Meals
     public class ConsumeUnit : Entity<int>
     {
 
-        [Key]
-        public int ConsumeUnitId { get; set; }
 
         public string UnitType { get; set; }
 

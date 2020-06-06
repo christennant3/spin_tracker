@@ -6,7 +6,7 @@ namespace SpinTracker.Meals.Dto
     [AutoMapFrom(typeof(Consume))]
     public class ConsumeDto : EntityDto<int>
     {
-        public int ConsumeId { get; set; }
+     
         public int Water { get; set; }
 
         public int Alcohol { get; set; }

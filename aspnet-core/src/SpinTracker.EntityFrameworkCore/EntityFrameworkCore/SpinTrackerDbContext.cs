@@ -20,6 +20,11 @@ namespace SpinTracker.EntityFrameworkCore
         public DbSet<EntryDate> EntryDates { get; set; }
 
         public DbSet<Meal> Meals { get; set; }
+        public DbSet<MealType> MealType { get; set; }
+
+        public DbSet<ConsumeUnit> ConsumeUnits { get; set; }
+      
+        public DbSet<Consume> Consumes { get; set; }
 
         public SpinTrackerDbContext(DbContextOptions<SpinTrackerDbContext> options)
             : base(options)

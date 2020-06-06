@@ -7,9 +7,8 @@ using System.Text;
 namespace SpinTracker.Meals.Dto
 {
     [AutoMapFrom(typeof(MealType))]
-    public class MealType : EntityDto<int>
+    public class MealTypeDto : EntityDto<int>
     {
-        public int MealTypeId { get; set; }
 
         public string Name { get; set; }
     }
