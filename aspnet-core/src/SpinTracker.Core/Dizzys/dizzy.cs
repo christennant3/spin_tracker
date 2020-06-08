@@ -6,9 +6,9 @@ using System.Text;
 
 namespace SpinTracker.Dizzys
 {
-    public class Body
+    public class DizzyBody
     {
-        public int BodyId { get; set; }
+        public int DizzyBodyId { get; set; }
 
         [Range(typeof(decimal), "0", "10")]
         public int Stress { get; set; }
@@ -24,9 +24,9 @@ namespace SpinTracker.Dizzys
         public EntryDate EntryDate { get; set; }
     }
 
-    public class Attack
+    public class DizzyAttack
     {
-        public int AttackId { get; set; }
+        public int DizzyAttackId { get; set; }
 
         public bool Vertigo { get; set; }
 
@@ -50,14 +50,14 @@ namespace SpinTracker.Dizzys
         public EntryDate EntryDate { get; set; }
     }
 
-    public class Checkin
+    public class DizzyCheckin
     {
-
+        public int DizzyCheckinId { get; set; }
     }
 
-    public class TimeOfDay
+    public class DizzyTimeOfDay
     {
-
+        public int DizzyTimeOfDayId { get; set; }
     }
 
  

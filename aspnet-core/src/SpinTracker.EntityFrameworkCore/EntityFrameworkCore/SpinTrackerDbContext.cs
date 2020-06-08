@@ -32,9 +32,9 @@ namespace SpinTracker.EntityFrameworkCore
 
         public DbSet<Condition> Conditions { get; set; }
 
-        public DbSet<Body> Bodys { get; set; }
+        public DbSet<DizzyBody> DizzyBodys { get; set; }
 
-        public DbSet<Attack> Attacks{ get; set; }
+        public DbSet<DizzyAttack> DizzyAttacks { get; set; }
 
         public DbSet<Treatment> Treatments { get; set; }
 
