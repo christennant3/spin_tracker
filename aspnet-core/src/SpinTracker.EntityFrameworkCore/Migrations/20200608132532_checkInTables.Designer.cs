@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SpinTracker.EntityFrameworkCore;
 
 namespace SpinTracker.Migrations
 {
     [DbContext(typeof(SpinTrackerDbContext))]
-    partial class SpinTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200608132532_checkInTables")]
+    partial class checkInTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1531,7 +1533,7 @@ namespace SpinTracker.Migrations
 
                     b.HasIndex("ConditionId");
 
-                    b.ToTable("Checkins");
+                    b.ToTable("Checkin");
                 });
 
             modelBuilder.Entity("SpinTracker.Checkins.CheckinScore", b =>
@@ -1561,7 +1563,7 @@ namespace SpinTracker.Migrations
 
                     b.HasIndex("TimeOfDayId");
 
-                    b.ToTable("checkinScores");
+                    b.ToTable("CheckinScore");
                 });
 
             modelBuilder.Entity("SpinTracker.Checkins.TimeOfDay", b =>
@@ -1576,7 +1578,7 @@ namespace SpinTracker.Migrations
 
                     b.HasKey("TimeOfDayId");
 
-                    b.ToTable("TimeOfDays");
+                    b.ToTable("TimeOfDay");
                 });
 
             modelBuilder.Entity("SpinTracker.Conditions.Condition", b =>

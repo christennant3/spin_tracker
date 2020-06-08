@@ -1,4 +1,5 @@
-﻿using SpinTracker.Treatments;
+﻿using SpinTracker.Checkins;
+using SpinTracker.Treatments;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,8 @@ namespace SpinTracker.Conditions
         public bool Active { get; set; }
 
         public ICollection<Treatment> Treatments { get; set; }
+
+        public ICollection<Checkin> Checkins { get; set; }
 
     }
 }

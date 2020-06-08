@@ -1,4 +1,5 @@
-﻿using SpinTracker.EntryDates;
+﻿using SpinTracker.Conditions;
+using SpinTracker.EntryDates;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -49,16 +50,5 @@ namespace SpinTracker.Dizzys
 
         public EntryDate EntryDate { get; set; }
     }
-
-    public class DizzyCheckin
-    {
-        public int DizzyCheckinId { get; set; }
-    }
-
-    public class DizzyTimeOfDay
-    {
-        public int DizzyTimeOfDayId { get; set; }
-    }
-
  
 }

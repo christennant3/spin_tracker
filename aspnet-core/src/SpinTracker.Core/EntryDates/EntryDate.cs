@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using SpinTracker.Authorization.Users;
 using SpinTracker.Meals;
+using SpinTracker.Medications;
 using SpinTracker.Sleeps;
 using SpinTracker.Treatments;
 using SpinTracker.Weathers;
@@ -26,6 +27,12 @@ namespace SpinTracker.EntryDates
         public ICollection<Consume> Consumes { get; set; }
 
         public ICollection<Sleep> Sleeps { get; set; }
+
+        public ICollection<EntryDate> EntryDates { get; set; }
+
+        public ICollection<Medication> Medications { get; set; }
+
+        public ICollection<Supplement> Supplements { get; set; }
 
         public User User { get; set; }
 
