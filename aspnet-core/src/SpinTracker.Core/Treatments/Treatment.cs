@@ -1,4 +1,5 @@
 ﻿using SpinTracker.Authorization.Users;
+using SpinTracker.Conditions;
 using SpinTracker.EntryDates;
 using System;
 using System.Collections.Generic;
@@ -10,32 +11,46 @@ namespace SpinTracker.Treatments
     public class Treatment
     {
 
-        //should make this a list of tratments with just a name field and active feald. 
-        //Long term could be turned on and off depending on a condition
-        public bool Meditation { get; set; }
-        public bool Acupuncture { get; set; }
 
-        public bool SelfMassage { get; set; }
+        public string TreatmentName { get; set; }
 
-        public bool Massage { get; set; }
+        public bool Active { get; set; }
 
-        public bool Balance { get; set; }
+        public int ConditionId { get; set; }
 
-        public bool HearingAids { get; set; }
-
-        public bool WristBand { get; set; }
-
-        public bool Antihistamine { get; set; }
-
-        public bool CbdOil { get; set; }
-
-        public bool CoconutCharcoal { get; set; }
-
-        public int EntryDateId { get; set; }
-
-        public EntryDate EntryDate { get; set; }
+        public Condition Condition { get; set; }
 
         public ICollection<TreatmentActive> TreatmentActives { get; set; }
+
+
+        //should make this a list of tratments with just a name field and active feald. 
+        //Long term could be turned on and off depending on a condition
+
+
+        //public bool Meditation { get; set; }
+        //public bool Acupuncture { get; set; }
+
+        //public bool SelfMassage { get; set; }
+
+        //public bool Massage { get; set; }
+
+        //public bool Balance { get; set; }
+
+        //public bool HearingAids { get; set; }
+
+        //public bool WristBand { get; set; }
+
+        //public bool Antihistamine { get; set; }
+
+        //public bool CbdOil { get; set; }
+
+        //public bool CoconutCharcoal { get; set; }
+
+        //public int EntryDateId { get; set; }
+
+        //public EntryDate EntryDate { get; set; }
+
+     
 
     }
 
@@ -50,6 +65,21 @@ namespace SpinTracker.Treatments
         public User User { get; set; }
 
         public TreatmentActive TreatmentActives { get; set; }
+
+    }
+
+    public class TreatmentResults
+    {
+
+        public bool Completed { get; set; }
+
+        public int TreatmentId { get; set; }
+
+        public int EntryDateId { get; set; }
+
+        public Treatment Treatment { get; set; }
+
+        public EntryDate EntryDate { get; set; }
 
     }
 
