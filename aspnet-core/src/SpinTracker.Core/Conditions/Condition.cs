@@ -7,6 +7,8 @@ namespace SpinTracker.Conditions
 {
     public class Condition
     {
+        public int ConditionId { get; set; }
+
         public string ConditionName { get; set; }
 
         public bool Active { get; set; }

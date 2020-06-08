@@ -7,6 +7,10 @@ using SpinTracker.Weathers;
 using SpinTracker.Sleeps;
 using SpinTracker.EntryDates;
 using SpinTracker.Meals;
+using SpinTracker.Conditions;
+using SpinTracker.Dizzys;
+using SpinTracker.Treatments;
+using SpinTracker.Medications;
 
 namespace SpinTracker.EntityFrameworkCore
 {
@@ -25,6 +29,28 @@ namespace SpinTracker.EntityFrameworkCore
         public DbSet<ConsumeUnit> ConsumeUnits { get; set; }
       
         public DbSet<Consume> Consumes { get; set; }
+
+        public DbSet<Condition> Conditions { get; set; }
+
+        public DbSet<Body> Bodys { get; set; }
+
+        public DbSet<Attack> Attacks{ get; set; }
+
+        public DbSet<Treatment> Treatments { get; set; }
+
+        public DbSet<TreatmentActive> TreatmentActives { get; set; }
+        
+        public DbSet<TreatmentResult> TreatmentResults { get; set; }
+
+        public DbSet<Medication> Medications { get; set; }
+
+        public DbSet<MedicationList> MedicationLists { get; set; }
+
+        public DbSet<Supplement> Supplements { get; set; }
+
+        public DbSet<SupplementList> SupplementLists { get; set; }
+
+
 
         public SpinTrackerDbContext(DbContextOptions<SpinTrackerDbContext> options)
             : base(options)

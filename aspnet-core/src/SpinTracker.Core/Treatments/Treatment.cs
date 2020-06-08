@@ -11,6 +11,7 @@ namespace SpinTracker.Treatments
     public class Treatment
     {
 
+        public int TreatmentId { get; set; }
 
         public string TreatmentName { get; set; }
 
@@ -56,6 +57,8 @@ namespace SpinTracker.Treatments
 
     public class TreatmentActive
     {
+        public int TreatmentActiveId { get; set; }
+
         public bool Active { get; set; }
 
         public int TreatmentId { get; set; }
@@ -68,8 +71,9 @@ namespace SpinTracker.Treatments
 
     }
 
-    public class TreatmentResults
+    public class TreatmentResult
     {
+        public int TreatmentResultId { get; set; }
 
         public bool Completed { get; set; }
 

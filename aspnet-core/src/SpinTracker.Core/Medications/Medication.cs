@@ -5,8 +5,9 @@ using System.Text;
 
 namespace SpinTracker.Medications
 {
-    public class Medication
+    public class Medication       
     {
+        public int MedicationId { get; set; }
         public string Name { get; set; }
 
         public int EntryDateId { get; set; }
@@ -17,15 +18,21 @@ namespace SpinTracker.Medications
     public class MedicationList
     {
 
-        // could be used used give some auto fill options for medication name.
+    // could be used used give some auto fill options for medication name.
+
+        public int MedicationListId { get; set; }
+
         public string Name { get; set; }
 
         public bool Active { get; set; }
       
     }
 
-    public class Supplements
+    public class Supplement
     {
+
+        public int SupplementId { get; set; }
+
         public string Name { get; set; }
 
         public int EntryDateId { get; set; }
@@ -37,6 +44,9 @@ namespace SpinTracker.Medications
     {
 
         // could be used used give some auto fill options for supplement name.
+
+        public int SupplementListId { get; set; }
+
         public string Name { get; set; }
 
         public bool Active { get; set; }
