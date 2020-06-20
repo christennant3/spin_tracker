@@ -8,7 +8,7 @@ namespace SpinTracker.Treatments
     {
   
         public TreatmentAppService(
-            IRepository<Treatment, int> repository
+            IRepository<Treatment, int> repository  
 
             )
 
@@ -17,4 +17,24 @@ namespace SpinTracker.Treatments
 
         }
     }
+
+    public class TreatmentActiveAppService : CrudAppService<TreatmentActive, TreatmentActiveDto>
+    {
+        public TreatmentActiveAppService(IRepository<TreatmentActive, int> repository) : base(repository)
+        {
+        }
+    }
+
+
+    public class TreatmentResultAppService : CrudAppService<TreatmentResult, TreatmentResultDto>
+    {
+        public TreatmentResultAppService(IRepository<TreatmentResult, int> repository) : base(repository)
+        {
+        }
+    }
+
 }
+
+
+
+
