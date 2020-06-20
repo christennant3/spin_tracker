@@ -16,4 +16,8 @@
   <ItemGroup>
     <ProjectReference Include="..\SpinTracker.Core\SpinTracker.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exercises\Dto\" />
+    <Folder Include="Notes\Dto\" />
+  </ItemGroup>
 </Project>

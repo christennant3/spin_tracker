@@ -10,7 +10,6 @@ namespace SpinTracker.Treatments
     [AutoMapFrom(typeof(Treatment))]
     public class TreatmentDto : EntityDto<int>
     {
-        //public int TreatmentId { get; set; }
 
         public string TreatmentName { get; set; }
 
@@ -19,11 +18,11 @@ namespace SpinTracker.Treatments
         public int ConditionId { get; set; }
 
     }
+
     [AutoMapFrom(typeof(TreatmentActive))]
     public class TreatmentActiveDto : EntityDto<int>
     {
-        //public int TreatmentActiveId { get; set; }
-
+        
         public bool Active { get; set; }
 
         public int TreatmentId { get; set; }
@@ -34,8 +33,7 @@ namespace SpinTracker.Treatments
     [AutoMapFrom(typeof(TreatmentResult))]
     public class TreatmentResultDto : EntityDto<int>
     {
-        //public int TreatmentResultId { get; set; }
-
+       
         public bool Completed { get; set; }
 
         public int TreatmentId { get; set; }

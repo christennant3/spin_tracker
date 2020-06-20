@@ -15,6 +15,10 @@
     <EmbeddedResource Include="Localization\SourceFiles\*.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SpinTracker.Application\Exercises\Dto\ExerciseDto.cs" Link="ExerciseDto.cs" />
+    <Compile Include="..\SpinTracker.Application\Notes\Dto\NoteDto.cs" Link="NoteDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Abp.AutoMapper" Version="5.5.0" />
     <PackageReference Include="Abp.ZeroCore.EntityFrameworkCore" Version="5.5.0" />
     <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.3.1" />

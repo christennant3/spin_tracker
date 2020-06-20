@@ -12,6 +12,8 @@ using SpinTracker.Dizzys;
 using SpinTracker.Treatments;
 using SpinTracker.Medications;
 using SpinTracker.Checkins;
+using SpinTracker.Notes;
+using SpinTracker.Exercises;
 
 namespace SpinTracker.EntityFrameworkCore
 {
@@ -56,6 +58,12 @@ namespace SpinTracker.EntityFrameworkCore
         public DbSet<CheckinScore> checkinScores { get; set; }
 
         public DbSet<TimeOfDay> TimeOfDays { get; set; }
+
+        public DbSet<Note> Notes { get; set; }
+
+        public DbSet<Exercise> Exercises { get; set; }
+
+
 
 
 
