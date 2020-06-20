@@ -2,9 +2,9 @@
 using Abp.AutoMapper;
 using System;
 
-namespace SpinTracker.Weathers
+namespace SpinTracker.Sleeps
 {
-    [AutoMapFrom(typeof(Weather))]
+    [AutoMapFrom(typeof(Sleep))]
     public class SleepDto : EntityDto<int>
     {
         public int SleepId { get; set; }

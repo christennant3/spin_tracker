@@ -7,20 +7,39 @@ using System.Text;
 
 namespace SpinTracker.Meals
 {
-    public class MealAppService : CrudAppService<Meal, MealDto, int, ConsumeDto, MealTypeDto, ConsumeUnitDto>
+    public class MealAppService : CrudAppService<Meal, MealDto>
     {
-        private readonly IRepository<Consume, int> MealTypeRepository;
+       
        
         public MealAppService(
-            IRepository<Meal, int> repository, 
-            IRepository<Consume, int> ConsumeRepository,
-            IRepository<MealType, int> MealTypeRepository,
-            IRepository<ConsumeUnit, int> ConsumeUnitRepository
+            IRepository<Meal, int> repository
             ) 
             
             : base(repository)
         {
             
+        }
+    }
+
+    public class MealTypeAppService : CrudAppService<MealType, MealTypeDto>
+    {
+        public MealTypeAppService(IRepository<MealType, int> repository) : base(repository)
+        {
+        }
+    }
+
+    public class ConsumeUnitAppService : CrudAppService<ConsumeUnit, ConsumeUnitDto>
+    {
+        public ConsumeUnitAppService(IRepository<ConsumeUnit, int> repository) : base(repository)
+        {
+        }
+    }
+
+
+    public class ConsumeAppService : CrudAppService<Consume, ConsumeDto>
+    {
+        public ConsumeAppService(IRepository<Consume, int> repository) : base(repository)
+        {
         }
     }
 }

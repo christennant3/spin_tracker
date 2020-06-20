@@ -1,4 +1,5 @@
-﻿using SpinTracker.Authorization.Users;
+﻿using Abp.Domain.Entities;
+using SpinTracker.Authorization.Users;
 using SpinTracker.Conditions;
 using SpinTracker.EntryDates;
 using System;
@@ -8,10 +9,10 @@ using System.Text;
 
 namespace SpinTracker.Treatments
 {
-    public class Treatment
+    public class Treatment : Entity<int>
     {
 
-        public int TreatmentId { get; set; }
+        //public int TreatmentId { get; set; }
 
         public string TreatmentName { get; set; }
 
@@ -55,9 +56,9 @@ namespace SpinTracker.Treatments
 
     }
 
-    public class TreatmentActive
+    public class TreatmentActive : Entity<int>
     {
-        public int TreatmentActiveId { get; set; }
+        //public int TreatmentActiveId { get; set; }
 
         public bool Active { get; set; }
 
@@ -71,9 +72,9 @@ namespace SpinTracker.Treatments
 
     }
 
-    public class TreatmentResult
+    public class TreatmentResult : Entity<int>
     {
-        public int TreatmentResultId { get; set; }
+        //public int TreatmentResultId { get; set; }
 
         public bool Completed { get; set; }
 
