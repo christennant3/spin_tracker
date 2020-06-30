@@ -55,7 +55,7 @@ namespace SpinTracker.EntityFrameworkCore
 
         public DbSet<Checkin> Checkins { get; set; }
 
-        public DbSet<CheckinScore> checkinScores { get; set; }
+        public DbSet<CheckinScore> CheckinScores { get; set; }
 
         public DbSet<TimeOfDay> TimeOfDays { get; set; }
 

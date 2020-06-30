@@ -1,9 +1,6 @@
-using System;
-using System.Linq;
 using Abp.AutoMapper;
 using Abp.Application.Services.Dto;
-
-
+using System;
 
 namespace SpinTracker.Notes.Dto
 {
