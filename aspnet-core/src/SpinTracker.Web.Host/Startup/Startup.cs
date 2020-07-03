@@ -18,6 +18,8 @@ using Abp.Dependency;
 using Abp.Json;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
+using SpinTracker.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace SpinTracker.Web.Host.Startup
 {
@@ -27,13 +29,17 @@ namespace SpinTracker.Web.Host.Startup
 
         private readonly IConfigurationRoot _appConfiguration;
 
-        public Startup(IWebHostEnvironment env)
+        public Startup(IWebHostEnvironment env, IConfiguration configuration)
         {
             _appConfiguration = env.GetAppConfiguration();
         }
 
+        public IConfiguration Configuration { get; }
+
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SpinTrackerDbContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("Default")));
             //MVC
             services.AddControllersWithViews(
                 options =>
@@ -88,6 +94,9 @@ namespace SpinTracker.Web.Host.Startup
                     Type = SecuritySchemeType.ApiKey
                 });
             });
+
+            services.AddDbContext<SpinTrackerDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             // Configure Abp and Dependency Injection
             return services.AddAbp<SpinTrackerWebHostModule>(

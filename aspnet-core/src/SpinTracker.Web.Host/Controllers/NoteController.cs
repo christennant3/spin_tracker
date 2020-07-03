@@ -1,49 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abp.Domain.Repositories;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SpinTracker.Controllers;
 using SpinTracker.EntityFrameworkCore;
 using SpinTracker.Notes;
-using Microsoft.AspNetCore.Http;
 
 namespace SpinTracker.Web.Host.Controllers
 {
-   
+    [Route("api/NoteContoller")]
+    [ApiController]
     public class NoteController : ControllerBase
     {
         private readonly SpinTrackerDbContext _context;
-        private readonly IRepository<Note> _noteRepository;
-        public NoteController(IRepository<Note> noteRepository, SpinTrackerDbContext context)
+
+        public NoteController(SpinTrackerDbContext context)
         {
-            _noteRepository = noteRepository;
+            //_noteRepository = noteRepository;
             _context = context;
 
         }
-        [HttpGet("api/notes/{id}")]
-        public JsonResult GetNoteById(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Note>> GetTodoItem(long id)
         {
+            var todoItem = await _context.Notes.FindAsync(id);
 
-            var questions = _context.Notes
-            .Where(n => n.Id == id)
-            .FirstOrDefault();
-            return new JsonResult(questions);
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
 
+            return todoItem;
         }
 
-        [HttpGet("api/EntryDate/")]
-        public JsonResult GetNoteBySome()
-        {
 
-            var questions = _context.EntryDates
-            .Where(n => n.Id > 0)
-            .ToList();
-            return new JsonResult(questions);
-
-        }
 
 
     }
