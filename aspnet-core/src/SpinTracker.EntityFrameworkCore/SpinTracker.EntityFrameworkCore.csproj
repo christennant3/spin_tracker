@@ -43,6 +43,22 @@
     <Compile Remove="Migrations\20200605225220_addMealsDbSets.Designer.cs" />
     <Compile Remove="Migrations\20200606092632_fixDoubleIds.cs" />
     <Compile Remove="Migrations\20200606092632_fixDoubleIds.Designer.cs" />
+    <Compile Remove="Migrations\20200606095752_first.cs" />
+    <Compile Remove="Migrations\20200606095752_first.Designer.cs" />
+    <Compile Remove="Migrations\20200608122857_lotsoftables.cs" />
+    <Compile Remove="Migrations\20200608122857_lotsoftables.Designer.cs" />
+    <Compile Remove="Migrations\20200608124546_changeDizzyTableNames.cs" />
+    <Compile Remove="Migrations\20200608124546_changeDizzyTableNames.Designer.cs" />
+    <Compile Remove="Migrations\20200608132532_checkInTables.cs" />
+    <Compile Remove="Migrations\20200608132532_checkInTables.Designer.cs" />
+    <Compile Remove="Migrations\20200608132830_checkInTablesDBsets.cs" />
+    <Compile Remove="Migrations\20200608132830_checkInTablesDBsets.Designer.cs" />
+    <Compile Remove="Migrations\20200620213554_notes_excercise.cs" />
+    <Compile Remove="Migrations\20200620213554_notes_excercise.Designer.cs" />
+    <Compile Remove="Migrations\20200705141953_fix_entrydateDto.cs" />
+    <Compile Remove="Migrations\20200705141953_fix_entrydateDto.Designer.cs" />
+    <Compile Remove="Migrations\20200705143419_fix_entrydate.cs" />
+    <Compile Remove="Migrations\20200705143419_fix_entrydate.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />

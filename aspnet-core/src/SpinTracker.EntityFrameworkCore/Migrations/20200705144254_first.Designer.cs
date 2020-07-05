@@ -10,8 +10,8 @@ using SpinTracker.EntityFrameworkCore;
 namespace SpinTracker.Migrations
 {
     [DbContext(typeof(SpinTrackerDbContext))]
-    [Migration("20200608132830_checkInTablesDBsets")]
-    partial class checkInTablesDBsets
+    [Migration("20200705144254_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1563,7 +1563,7 @@ namespace SpinTracker.Migrations
 
                     b.HasIndex("TimeOfDayId");
 
-                    b.ToTable("checkinScores");
+                    b.ToTable("CheckinScores");
                 });
 
             modelBuilder.Entity("SpinTracker.Checkins.TimeOfDay", b =>
@@ -1686,6 +1686,32 @@ namespace SpinTracker.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("EntryDates");
+                });
+
+            modelBuilder.Entity("SpinTracker.Exercises.Exercise", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Duration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EntryDateId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExerciseType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EntryDateId");
+
+                    b.ToTable("Exercises");
                 });
 
             modelBuilder.Entity("SpinTracker.Meals.Consume", b =>
@@ -1922,6 +1948,29 @@ namespace SpinTracker.Migrations
                     b.ToTable("AbpTenants");
                 });
 
+            modelBuilder.Entity("SpinTracker.Notes.Note", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EntryDateId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EntryDateId");
+
+                    b.ToTable("Notes");
+                });
+
             modelBuilder.Entity("SpinTracker.Sleeps.Sleep", b =>
                 {
                     b.Property<int>("Id")
@@ -1956,7 +2005,7 @@ namespace SpinTracker.Migrations
 
             modelBuilder.Entity("SpinTracker.Treatments.Treatment", b =>
                 {
-                    b.Property<int>("TreatmentId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -1973,7 +2022,7 @@ namespace SpinTracker.Migrations
                     b.Property<string>("TreatmentName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TreatmentId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ConditionId");
 
@@ -1984,7 +2033,7 @@ namespace SpinTracker.Migrations
 
             modelBuilder.Entity("SpinTracker.Treatments.TreatmentActive", b =>
                 {
-                    b.Property<int>("TreatmentActiveId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -1992,7 +2041,7 @@ namespace SpinTracker.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("TreatmentActivesTreatmentActiveId")
+                    b.Property<int?>("TreatmentActivesId")
                         .HasColumnType("int");
 
                     b.Property<int>("TreatmentId")
@@ -2001,9 +2050,9 @@ namespace SpinTracker.Migrations
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
-                    b.HasKey("TreatmentActiveId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("TreatmentActivesTreatmentActiveId");
+                    b.HasIndex("TreatmentActivesId");
 
                     b.HasIndex("TreatmentId");
 
@@ -2014,7 +2063,7 @@ namespace SpinTracker.Migrations
 
             modelBuilder.Entity("SpinTracker.Treatments.TreatmentResult", b =>
                 {
-                    b.Property<int>("TreatmentResultId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -2028,7 +2077,7 @@ namespace SpinTracker.Migrations
                     b.Property<int>("TreatmentId")
                         .HasColumnType("int");
 
-                    b.HasKey("TreatmentResultId");
+                    b.HasKey("Id");
 
                     b.HasIndex("EntryDateId");
 
@@ -2340,6 +2389,15 @@ namespace SpinTracker.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SpinTracker.Exercises.Exercise", b =>
+                {
+                    b.HasOne("SpinTracker.EntryDates.EntryDate", "EntryDate")
+                        .WithMany("Exercises")
+                        .HasForeignKey("EntryDateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SpinTracker.Meals.Consume", b =>
                 {
                     b.HasOne("SpinTracker.Meals.ConsumeUnit", "ConsumeUnit")
@@ -2403,6 +2461,15 @@ namespace SpinTracker.Migrations
                         .HasForeignKey("LastModifierUserId");
                 });
 
+            modelBuilder.Entity("SpinTracker.Notes.Note", b =>
+                {
+                    b.HasOne("SpinTracker.EntryDates.EntryDate", "EntryDate")
+                        .WithMany("Notes")
+                        .HasForeignKey("EntryDateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("SpinTracker.Sleeps.Sleep", b =>
                 {
                     b.HasOne("SpinTracker.EntryDates.EntryDate", "EntryDate")
@@ -2429,7 +2496,7 @@ namespace SpinTracker.Migrations
                 {
                     b.HasOne("SpinTracker.Treatments.TreatmentActive", "TreatmentActives")
                         .WithMany()
-                        .HasForeignKey("TreatmentActivesTreatmentActiveId");
+                        .HasForeignKey("TreatmentActivesId");
 
                     b.HasOne("SpinTracker.Treatments.Treatment", null)
                         .WithMany("TreatmentActives")

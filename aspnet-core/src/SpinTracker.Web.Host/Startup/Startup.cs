@@ -34,12 +34,12 @@ namespace SpinTracker.Web.Host.Startup
             _appConfiguration = env.GetAppConfiguration();
         }
 
-        public IConfiguration Configuration { get; }
+        //public IConfiguration Configuration { get; }
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SpinTrackerDbContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            //services.AddDbContext<SpinTrackerDbContext>(options =>
+            //   options.UseSqlServer(Configuration.GetConnectionString("Default")));
             //MVC
             services.AddControllersWithViews(
                 options =>
@@ -95,8 +95,8 @@ namespace SpinTracker.Web.Host.Startup
                 });
             });
 
-            services.AddDbContext<SpinTrackerDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            //services.AddDbContext<SpinTrackerDbContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             // Configure Abp and Dependency Injection
             return services.AddAbp<SpinTrackerWebHostModule>(

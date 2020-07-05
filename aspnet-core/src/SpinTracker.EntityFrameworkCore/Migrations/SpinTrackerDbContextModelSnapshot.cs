@@ -1561,7 +1561,7 @@ namespace SpinTracker.Migrations
 
                     b.HasIndex("TimeOfDayId");
 
-                    b.ToTable("checkinScores");
+                    b.ToTable("CheckinScores");
                 });
 
             modelBuilder.Entity("SpinTracker.Checkins.TimeOfDay", b =>
@@ -1671,15 +1671,10 @@ namespace SpinTracker.Migrations
                     b.Property<DateTime>("DateEntry")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("EntryDateId")
-                        .HasColumnType("int");
-
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EntryDateId");
 
                     b.HasIndex("UserId");
 
@@ -2376,10 +2371,6 @@ namespace SpinTracker.Migrations
 
             modelBuilder.Entity("SpinTracker.EntryDates.EntryDate", b =>
                 {
-                    b.HasOne("SpinTracker.EntryDates.EntryDate", null)
-                        .WithMany("EntryDates")
-                        .HasForeignKey("EntryDateId");
-
                     b.HasOne("SpinTracker.Authorization.Users.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")

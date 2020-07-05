@@ -30,7 +30,7 @@ namespace SpinTracker.EntryDates
 
         public ICollection<Sleep> Sleeps { get; set; }
 
-        public ICollection<EntryDate> EntryDates { get; set; }
+        //public ICollection<EntryDate> EntryDates { get; set; }
 
         public ICollection<Medication> Medications { get; set; }
 
