@@ -1,6 +1,9 @@
 <style lang="less">
     @import "./main.less";
 </style>
+<style lang="scss">
+    @import "./main.scss";
+</style>
 <template>
     <div class="main" :class="{'main-hide-text': shrink}">
         <div class="sidebar-menu-con" :style="{width: shrink?'80px':'256px', overflow: shrink ? 'visible' : 'auto'}">
