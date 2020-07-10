@@ -1,3 +1,45 @@
 h1 {
-    font-size: 2em;
+  font-size: 2em;
+}
+
+#wrapper {
+  background-color: white;
+  display: block;
+  color: black;
+  display: grid;
+  grid-template-areas: "header header header header" "nav main main main" "footer footer footer footer";
+
+  header {
+    background-color: orange;
+    padding: 16px;
+    grid-area: header;
+
+  }
+
+  nav {
+    grid-area: nav;
+    padding: 16px;
+  }
+
+  main {
+    grid-area: main;
+    padding: 16px;
+  }
+
+  footer {
+    grid-area: footer;
+    margin-bottom: 60px;
+    padding: 16px;
+    background-color: white;
+  }
+}
+
+.main {
+  .sidebar-menu-con {
+    position: static;
+  }
+}
+
+.sidebar-menu-con {
+  position: static;
 }

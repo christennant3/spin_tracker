@@ -5,7 +5,34 @@
     @import "./main.scss";
 </style>
 <template>
+
     <div class="main" :class="{'main-hide-text': shrink}">
+     
+     <div id="wrapper">
+      <header>header</header>
+      <nav>nav
+ <v-badge
+      :value="hover"
+      color="deep-purple accent-4"
+      content="9999+"
+      left
+      transition="slide-x-transition"
+    >
+      <v-hover v-model="hover">
+        <v-icon
+          color="grey lighten-1"
+          large
+        >
+          mdi-account-circle
+        </v-icon>
+      </v-hover>
+    </v-badge>
+        <v-icon mid-plus></v-icon>
+      </nav>
+      <main>content</main>
+      <footer>footer</footer>
+     </div>
+
         <div class="sidebar-menu-con" :style="{width: shrink?'80px':'256px', overflow: shrink ? 'visible' : 'auto'}">
             <shrinkable-menu 
                 :shrink="shrink"
@@ -23,9 +50,9 @@
                 </div>
             </shrinkable-menu>
         </div>
-        <div class="main-header-con" :style="{paddingLeft: shrink?'80px':'256px'}">
-            <div class="main-header">
-                <div class="navicon-con">
+        <div class="main-header" :style="{paddingLeft: shrink?'80px':'256px'}">
+            <div class="main-header2">
+                <div class="navicon2">
                     <Button :style="{transform: 'rotateZ(' + (this.shrink ? '-90' : '0') + 'deg)'}" type="text" @click="toggleClick">
                         <Icon type="navicon" size="32"></Icon>
                     </Button>
@@ -61,7 +88,7 @@
                 <tags-page-opened :pageTagsList="pageTagsList"></tags-page-opened>
             </div>
         </div>
-        <div class="single-page-con" :style="{left: shrink?'80px':'256px'}">
+        <div class="single-page2" :style="{left: shrink?'80px':'256px'}">
             <div class="single-page">
                 <keep-alive :include="cachePage">
                     <router-view></router-view>

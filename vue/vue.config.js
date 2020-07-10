@@ -1,7 +1,10 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     configureWebpack: config => {
-      if (process.env.NODE_ENV === 'production') {
+        if (process.env.NODE_ENV === 'production') {
+            output: {
+                publicPath: '/static/'
+            }
         return {
             plugins:[
                 new CopyWebpackPlugin([{

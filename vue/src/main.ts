@@ -19,6 +19,7 @@ if(!abp.utils.getCookieValue('Abp.Localization.CultureName')){
 Ajax.get('/AbpUserConfiguration/GetAll').then(data=>{
   Util.abp=Util.extend(true,Util.abp,data.data.result);
   new Vue({
+    
     render: h => h(App),
     router:router,
     store:store,
@@ -38,6 +39,7 @@ Ajax.get('/AbpUserConfiguration/GetAll').then(data=>{
       this.$store.commit('app/initCachepage');
       this.$store.commit('app/updateMenulist');
     },
+    
     created () {
       let tagsList:Array<any> = [];
       appRouters.map((item) => {
@@ -48,7 +50,7 @@ Ajax.get('/AbpUserConfiguration/GetAll').then(data=>{
           }
       });
       this.$store.commit('app/setTagsList', tagsList);
-    }
+    },
   }).$mount('#app')
 })
 
