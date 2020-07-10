@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from './app.vue';
+import Vuetify from 'vuetify';
 import iView from 'iview';
 import {router} from './router/index';
 import 'famfamfam-flags/dist/sprite/famfamfam-flags.css';
@@ -8,6 +9,7 @@ import Ajax from './lib/ajax';
 import Util from './lib/util';
 import SignalRAspNetCoreHelper from './lib/SignalRAspNetCoreHelper';
 Vue.use(iView);
+Vue.use(Vuetify);
 import store from './store/index';
 Vue.config.productionTip = false;
 import { appRouters,otherRouters} from './router/router';
@@ -19,7 +21,7 @@ if(!abp.utils.getCookieValue('Abp.Localization.CultureName')){
 Ajax.get('/AbpUserConfiguration/GetAll').then(data=>{
   Util.abp=Util.extend(true,Util.abp,data.data.result);
   new Vue({
-    
+    vuetify: new Vuetify(),
     render: h => h(App),
     router:router,
     store:store,
