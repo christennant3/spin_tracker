@@ -1,34 +1,61 @@
 <template>
   <div class="home">
-    <div class="contenttext">
-      <h1>Meniere’s Symptoms - Identify your triggers</h1>
-      <!-- <div v-for="weather in weathers" v-bind:key="weather.id">
+    <div class="grid">
+      <div class="contenttext">
+  
+       <h1>Meniere’s Symptoms - Identify your triggers</h1> 
+        <p>Track weather, diet, stress levels, sleep etc to find out what triggers your symptoms.</p> 
+        <div v-for="weather in weathers" v-bind:key="weather.id">
         <Card dis-hover>Pollen: {{ weather.pollen }}</Card>
-      </div> -->
-    </div>
-    <div class="contentimage">
-     <img src="../../images/balance.jpg" alt="stones balancing" />
-    </div>
+        </div>
+      </div>
+      <div class="contentimage">
+      
+       <img src="../../images/balance.jpg" alt="stones balancing" /> 
+      </div>
 
+    </div>
+   
   </div>
 </template>
-<style scoped>
-.home {
+<style scoped lang="scss">
+.grid {
   display: grid;
-  grid-template-areas: "contenttext contenttext";
+  grid-template-areas: 
+  "contenttext contenttext contenttext contentimage contentimage contentimage"
+  
+  ;
+  grid-gap: 30px;
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: normal;
+    color: #20aa11;
+    padding-bottom: 16px;
+  }
+
+  p {
+    font-size: 1.6em;
+  }
 }
 
 .contenttext {
   grid-area: contenttext;
-
+  text-align: center;
+  background-color: darkkhaki;
+  
 }
 
 .contentimage {
   grid-area: contentimage;
+  text-align: center;
+  background-color: chartreuse;
+
+  img {
+    padding-left: 220px;
+  }
 
 }
-
-
 </style>
 
 <script lang="ts">
@@ -45,7 +72,7 @@ export default Vue.extend({
   mounted() {
     const axios = require("axios");
 
- /*    HTTP.get("Weather/GetAll").then(response => {
+    /*    HTTP.get("Weather/GetAll").then(response => {
       this.weathers = response.data.result.items;
     }); */
 
