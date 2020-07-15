@@ -5,6 +5,7 @@
   
        <h1>Meniere’s Symptoms - Identify your triggers</h1> 
         <p>Track weather, diet, stress levels, sleep etc to find out what triggers your symptoms.</p> 
+        <p>An easy way to work out what cause your Vertigo, dizziness and brain fog.</p>
         <div v-for="weather in weathers" v-bind:key="weather.id">
         <Card dis-hover>Pollen: {{ weather.pollen }}</Card>
         </div>
@@ -21,11 +22,11 @@
 <style scoped lang="scss">
 .grid {
   display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
   grid-template-areas: 
-  "contenttext contenttext contenttext contentimage contentimage contentimage"
-  
-  ;
-  grid-gap: 30px;
+  "contenttext contenttext contenttext contenttext contentimage contentimage contentimage";
+  grid-gap: 50px;
 
   h1 {
     font-size: 2.5em;
@@ -35,25 +36,18 @@
   }
 
   p {
-    font-size: 1.6em;
+    font-size: 1.4em;
   }
 }
 
 .contenttext {
   grid-area: contenttext;
-  text-align: center;
-  background-color: darkkhaki;
-  
+ 
 }
 
 .contentimage {
   grid-area: contentimage;
-  text-align: center;
-  background-color: chartreuse;
-
-  img {
-    padding-left: 220px;
-  }
+  text-align: left;
 
 }
 </style>
