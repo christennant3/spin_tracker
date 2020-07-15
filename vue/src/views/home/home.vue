@@ -66,9 +66,9 @@ export default Vue.extend({
   mounted() {
     const axios = require("axios");
 
-    /*    HTTP.get("Weather/GetAll").then(response => {
+       HTTP.get("Weather/GetAll").then(response => {
       this.weathers = response.data.result.items;
-    }); */
+    }); 
 
     if (process.env.NODE_ENV === "development") {
       console.log("DEV");
