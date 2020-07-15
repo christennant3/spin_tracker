@@ -11,43 +11,36 @@ $color-pack: false;
   <div class="main" :class="{'main-hide-text': shrink}">
     <v-app>
       <div id="wrapper">
-        <header>header</header>
-        <nav>
-          nav
-          <v-icon mid-plus></v-icon>
-
-          <div class="my-2">
-            <v-btn small color="error">Error</v-btn>
+        <div id="admin-bar">
+          <shrinkable-menu
+            :shrink="shrink"
+            @on-change="handleSubmenuChange"
+            :theme="menuTheme"
+            :before-push="beforePush"
+            :open-names="openedSubmenuArr"
+            :menu-list="menuList"
+          >
+  
+          </shrinkable-menu>
+        </div>
+        <header>
+          <h1>Spin Tracker</h1>
+          <div class="header-middle-con">
+          <div class="main-breadcrumb">
+            <breadcrumb-nav :currentPath="currentPath"></breadcrumb-nav>
           </div>
+        </div>
+        </header>
+        <nav>
+          
+          <v-btn class="mx-2" fab dark color="green">
+            <v-icon dark>mdi-plus</v-icon>
+          </v-btn> New Entry
         </nav>
         <main>
-          <v-toolbar>
-            <v-tabs dark background-color="primary" grow>
-              <v-tab>
-                <v-badge color="pink" dot>Item One</v-badge>
-              </v-tab>
-
-              <v-tab>
-                <v-badge color="green" content="6">Item Two</v-badge>
-              </v-tab>
-
-              <v-tab>
-                <v-badge color="deep-purple accent-4" icon="mdi-vuetify">Item Three</v-badge>
-              </v-tab>
-            </v-tabs>
-          </v-toolbar>
-
-          <v-btn class="ma-2" color="primary">
-            Accept
-            <v-icon dark right>mdi-checkbox-marked-circle</v-icon>
-          </v-btn>
-
-          <v-btn class="ma-2" color="red">
-            Decline
-            <v-icon dark right>mdi-cancel</v-icon>
-          </v-btn>
-
-          <v-icon large color="blue darken-2">mdi-message-text</v-icon>
+          <keep-alive :include="cachePage">
+            <router-view></router-view>
+          </keep-alive>
         </main>
         <footer>footer</footer>
       </div>
@@ -56,23 +49,7 @@ $color-pack: false;
     <div
       class="sidebar-menu-con"
       :style="{width: shrink?'80px':'256px', overflow: shrink ? 'visible' : 'auto'}"
-    >
-      <shrinkable-menu
-        :shrink="shrink"
-        @on-change="handleSubmenuChange"
-        :theme="menuTheme"
-        :before-push="beforePush"
-        :open-names="openedSubmenuArr"
-        :menu-list="menuList"
-      >
-        <div slot="top" class="logo-con">
-          <a>
-            <Icon type="cube" size="32"></Icon>
-            <h1>{{L('AppName')}}</h1>
-          </a>
-        </div>
-      </shrinkable-menu>
-    </div>
+    ></div>
     <div class="main-header" :style="{paddingLeft: shrink?'80px':'256px'}">
       <div class="main-header2">
         <div class="navicon2">
@@ -84,11 +61,7 @@ $color-pack: false;
             <Icon type="navicon" size="32"></Icon>
           </Button>
         </div>
-        <div class="header-middle-con">
-          <div class="main-breadcrumb">
-            <breadcrumb-nav :currentPath="currentPath"></breadcrumb-nav>
-          </div>
-        </div>
+        
         <div class="header-avator-con">
           <full-screen v-model="isFullScreen" @on-change="fullscreenChange"></full-screen>
           <lock-screen></lock-screen>
@@ -118,11 +91,7 @@ $color-pack: false;
       </div>
     </div>
     <div class="single-page2" :style="{left: shrink?'80px':'256px'}">
-      <div class="single-page">
-        <keep-alive :include="cachePage">
-          <router-view></router-view>
-        </keep-alive>
-      </div>
+      <div class="single-page"></div>
       <copyfooter :copyright="L('CopyRight')"></copyfooter>
     </div>
   </div>

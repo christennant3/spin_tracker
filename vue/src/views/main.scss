@@ -1,7 +1,14 @@
-//@import './colors.scss';
 
-h1 {
-  font-size: 2em;
+$font: 'Open Sans', Tahoma, sans-serif;
+$primary: #F3EEE9;
+$secondry: #CF6615;
+$third: #333333;
+$green: #20AA11;
+
+body {
+  h1 {
+    font-size: 1.4em;
+  }
 }
 
 #wrapper {
@@ -9,13 +16,39 @@ h1 {
   display: block;
   color: black;
   display: grid;
-  grid-template-areas: "header header header header" "nav main main main" "footer footer footer footer";
+  grid-template-areas: "adminbar adminbar adminbar adminbar" "header header header header" "nav main main main" "footer footer footer footer";
+  background-color: $primary;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 16px;
+  font-family: $font;
 
   header {
-    background-color: orange;
+    background-color: $secondry;
     padding: 16px;
     grid-area: header;
 
+    h1 {
+      color: $primary;
+    }
+
+    a {
+      color: black;
+    }
+
+    a:link {
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .main-breadcrumb {
+      padding-left: 0px;
+      padding-top: 14px;
+
+    }
   }
 
   nav {
@@ -32,7 +65,22 @@ h1 {
     grid-area: footer;
     margin-bottom: 60px;
     padding: 16px;
-    background-color: white;
+    background-color: primary;
+  }
+}
+
+#admin-bar {
+  background-color: #001529;
+  grid-area: adminbar;
+  // height: 40px;
+  padding-left: 16px;
+
+  .ivu-menu {
+    padding-left: 0;
+  }
+
+  .ivu-menu-submenu-title {
+    padding-left: 0;
   }
 }
 
