@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq.Dynamic.Core;
 using System.Text;
 using System.Linq;
+using SpinTracker.Sleeps.Inserts;
 
 namespace SpinTracker.Controllers
 {
@@ -40,15 +41,31 @@ namespace SpinTracker.Controllers
 
         }
 
-        //[HttpGet("api/sleeps/{id}")]
-        //public JsonResult GetSleepBySleep(int id)
-        //{
-        //    var sleeps = _context.Sleeps
-        //       .Where(s => s.Id == id)
-        //       .FirstOrDefault();
-        //     return new JsonResult(sleeps);
+        [HttpPost("api/InsertSleep/")]
+        public JsonResult InsertSleep([FromBody] InsertSleep content)
+        {
+            
+     
+            Sleep s = new Sleep()
+            {
+                SleepTime = DateTime.Now,
+                AwakeTime = DateTime.Now,
+                SleepQuality = 1,
+                Sofa = true,
+                FellAsleep = true,
+                EntryDateId = 6
 
-        //}
+
+            };
+
+            _sleepRepository.Insert(s);
+            //_sleepRepository.;
+
+            return new JsonResult(s);
+
+        }
+
+
     }
     
     
